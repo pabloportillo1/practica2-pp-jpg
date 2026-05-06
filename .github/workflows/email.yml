@@ -14,20 +14,14 @@ jobs:
     steps:
       - name: Send Email
         uses: dawidd6/action-send-mail@v3
-
         with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-
-          username: ${{ secrets.EMAIL_USER }}
-          password: ${{ secrets.EMAIL_PASS }}
+          connection_url: smtp+starttls://${{ secrets.EMAIL_USER }}:${{ secrets.EMAIL_PASS }}@smtp.gmail.com:587
 
           subject: Cambios subidos a rama ${{ github.ref_name }}
 
           body: |
-            Se detectaron cambios en la rama:
+            Se realizaron cambios en la rama:
             ${{ github.ref_name }}
 
-          to: TU_CORREO@gmail.com
+          to: pablo.portillo.madera@gmail.com
           from: GitHub Actions
