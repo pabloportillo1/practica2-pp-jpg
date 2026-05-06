@@ -15,7 +15,11 @@ jobs:
       - name: Send Email
         uses: dawidd6/action-send-mail@v3
         with:
-          connection_url: smtp+starttls://${{ secrets.EMAIL_USER }}:${{ secrets.EMAIL_PASS }}@smtp.gmail.com:587
+          server_address: smtp.gmail.com
+          server_port: 587
+
+          username: ${{ secrets.EMAIL_USER }}
+          password: ${{ secrets.EMAIL_PASS }}
 
           subject: Cambios subidos a rama ${{ github.ref_name }}
 
@@ -25,3 +29,5 @@ jobs:
 
           to: pablo.portillo.madera@gmail.com
           from: GitHub Actions
+
+          secure: false
