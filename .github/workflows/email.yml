@@ -28,5 +28,5 @@ jobs:
             Se realizaron cambios en la rama:
             ${{ github.ref_name }}
 
-          to: pablo.portillo.madera@gmail.com
+          to: juan.pabloglez60@gmail.com
           from: GitHub Actions
